@@ -1,0 +1,191 @@
+{
+  "info": {
+    "_postman_id": "1c741b22-a166-4fd7-8bbc-3cce5070a807",
+    "name": "Project Service",
+    "description": "Project Service API requests for FlowWork.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"projectName\": \"Website Redesign\",\n  \"projectKey\": \"WEB-REDESIGN\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/projects",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Projects",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/projects?page_num=0&page_size=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects"
+          ],
+          "query": [
+            {
+              "key": "page_num",
+              "value": "0"
+            },
+            {
+              "key": "page_size",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Project by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/projects/{{projectId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Project",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"projectName\": \"Website Redesign\",\n  \"projectKey\": \"WEB-REDESIGN\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/projects/{{projectId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Project",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/projects/{{projectId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Change Project Status",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "{{baseUrl}}/projects/{{projectId}}/status?status=ACTIVE",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "ACTIVE"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Archive Project",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/projects/{{projectId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "projects",
+            "{{projectId}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api"
+    },
+    {
+      "key": "projectId",
+      "value": "replace-with-project-uuid"
+    },
+    {
+      "key": "token",
+      "value": "replace-with-access-token"
+    }
+  ]
+}
